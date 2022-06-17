@@ -1,0 +1,8 @@
+Firebase: Authenticaction
+
+Firebase permite simplificar operaciones que pueden ser complejas tanto para el usuario como para el desarrollador, en aspectos como:
+a) Seguridad al momento de autenticarse, puesto que el desarrollador tendría que implementar varias caracteristicas como, 
+	registrar nombre de usuario, mecanismo para encriptar contraseñas o recuperar infomracion en caso de que el usuario la olvide. 
+	Ademas, la seguridad al ser creada por equipos de desarollo de google brindara de mayor confianza al usuario.
+b)Interfaz de usuario: firebase proporciona plantillas para implementar directamente la UI del login, con ello al desarollador le tomara menos tiempo y esfuerzo en esto, y concentrarse mayormente en la funcionalidad de su app.
+c)Acceso sencillo: firebase tambien brinda soluciones para mejorar la experencia de coneccion a terceros, brindando a los usuarios la opcion de conectarse con sus cuentas preferidas, mientras que para los desarrolladores no tendran que preocuparse por implementar esto. 
