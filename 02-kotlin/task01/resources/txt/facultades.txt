@@ -1,0 +1,4 @@
+codigo carrera nombre fecha_fundacion biblioteca
+fis computacion sistemas 1900-04-05 false
+fis software sistemas 1890-06-20 false
+fc economia ciencias 1700-02-08 false

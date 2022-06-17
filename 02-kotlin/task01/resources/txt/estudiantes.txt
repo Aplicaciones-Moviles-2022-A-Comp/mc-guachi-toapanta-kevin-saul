@@ -1,0 +1,4 @@
+id nombre apellido promedio edad codigo carrera
+001 Kevin Guachi 5.0 24 fis computacion
+002 Cristina Guachi 8.6 24 fc economia
+003 Jorge Caicedo 7.5 22 fis software
