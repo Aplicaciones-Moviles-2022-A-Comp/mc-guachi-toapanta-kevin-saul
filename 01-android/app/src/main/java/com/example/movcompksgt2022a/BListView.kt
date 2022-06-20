@@ -2,13 +2,15 @@ package com.example.movcompksgt2022a
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.ListView
+import android.view.ContextMenu
+import android.view.View
+import android.widget.*
+import java.util.zip.Inflater
 
 class BListView : AppCompatActivity() {
     //val arreglo: ArrayList<Int> = arrayListOf(1, 2, 3,4,5)
     val arreglo: ArrayList<BEntrenador> = BBaseDatosMemoria.arregloBEntrenador
+    var idItemSelecc = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +31,23 @@ class BListView : AppCompatActivity() {
                 aniadirNumero(adaptador)
             }
     }
-    
+
+    override fun onCreateContextMenu(
+        menu: ContextMenu?,
+        v: View?,
+        menuInfo: ContextMenu.ContextMenuInfo?
+    ) {
+        super.onCreateContextMenu(menu, v, menuInfo)
+        //llenamos las opciones del menu
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu, menu)
+        //Obtener el id del ArrayListSeleccionado
+        val info= menuInfo as AdapterView.AdapterContextMenuInfo
+        val id = info.position
+        idItemSelecc = id
+
+    }
+
     fun aniadirNumero(
        // adaptador:ArrayAdapter<Int>
     adaptador: ArrayAdapter<BEntrenador>
