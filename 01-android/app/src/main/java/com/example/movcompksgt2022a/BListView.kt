@@ -1,11 +1,14 @@
 package com.example.movcompksgt2022a
 
+import android.app.Dialog
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.ContextMenu
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import java.util.zip.Inflater
 
 class BListView : AppCompatActivity() {
@@ -58,11 +61,46 @@ class BListView : AppCompatActivity() {
 
             }
             R.id.mi_eliminar -> {
+                abrirDialog()
                 "${idItemSelecc}"
                 return true
             }
             else -> super.onContextItemSelected(item)
         }
+    }
+
+    fun abrirDialog() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Desea Eliminar")
+        builder.setPositiveButton(
+            "Aceptar",
+            DialogInterface.OnClickListener { dialog, which -> //Al aceptar eliminar el registro
+            }
+        )
+        builder.setNegativeButton(
+            "Cancelar",
+            null
+        )
+        val opciones = resources.getStringArray(
+            R.array.string_array_opciones_dialogo
+        )
+
+        val seleccionPrevia = booleanArrayOf(
+            true, //Lunes seleccionado
+            false, //Martes NO selecccionado
+            false //Miercoles NO seleccionado
+        )
+        builder.setMultiChoiceItems(
+            opciones,
+            seleccionPrevia,
+            { dialog,
+              which,
+              isChecked ->
+                "Dio clic en el item ${which}"
+            }
+        )
+        val dialogo = builder.create()
+        dialogo.show()
     }
 
     fun aniadirNumero(
