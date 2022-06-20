@@ -3,6 +3,7 @@ package com.example.movcompksgt2022a
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.ContextMenu
+import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import java.util.zip.Inflater
@@ -27,9 +28,10 @@ class BListView : AppCompatActivity() {
         val botonAniadirLv = findViewById<Button>(R.id.btn_anadir_list_view)
 
         botonAniadirLv
-            .setOnClickListener{
+            .setOnClickListener {
                 aniadirNumero(adaptador)
             }
+        registerForContextMenu(listView)
     }
 
     override fun onCreateContextMenu(
@@ -42,18 +44,33 @@ class BListView : AppCompatActivity() {
         val inflater = menuInflater
         inflater.inflate(R.menu.menu, menu)
         //Obtener el id del ArrayListSeleccionado
-        val info= menuInfo as AdapterView.AdapterContextMenuInfo
+        val info = menuInfo as AdapterView.AdapterContextMenuInfo
         val id = info.position
         idItemSelecc = id
 
     }
 
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.mi_editar -> {
+                "${idItemSelecc}"
+                return true
+
+            }
+            R.id.mi_eliminar -> {
+                "${idItemSelecc}"
+                return true
+            }
+            else -> super.onContextItemSelected(item)
+        }
+    }
+
     fun aniadirNumero(
-       // adaptador:ArrayAdapter<Int>
-    adaptador: ArrayAdapter<BEntrenador>
-    ){
+        // adaptador:ArrayAdapter<Int>
+        adaptador: ArrayAdapter<BEntrenador>
+    ) {
         arreglo.add(
-            BEntrenador("Vicente","Eguez")
+            BEntrenador("Vicente", "Eguez")
         )
         adaptador.notifyDataSetChanged()
     }
