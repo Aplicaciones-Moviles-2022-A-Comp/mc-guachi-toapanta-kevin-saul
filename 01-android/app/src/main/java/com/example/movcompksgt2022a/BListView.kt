@@ -7,7 +7,8 @@ import android.widget.Button
 import android.widget.ListView
 
 class BListView : AppCompatActivity() {
-    val arreglo: ArrayList<Int> = arrayListOf(1, 2, 3,4,5)
+    //val arreglo: ArrayList<Int> = arrayListOf(1, 2, 3,4,5)
+    val arreglo: ArrayList<BEntrenador> = BBaseDatosMemoria.arregloBEntrenador
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,9 +31,12 @@ class BListView : AppCompatActivity() {
     }
     
     fun aniadirNumero(
-        adaptador:ArrayAdapter<Int>
+       // adaptador:ArrayAdapter<Int>
+    adaptador: ArrayAdapter<BEntrenador>
     ){
-        arreglo.add(1)
+        arreglo.add(
+            BEntrenador("Vicente","Eguez")
+        )
         adaptador.notifyDataSetChanged()
     }
 }
