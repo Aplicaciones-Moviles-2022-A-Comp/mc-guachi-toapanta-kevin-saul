@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">trabajoClase01</string>
+    <string name="texto">PORT-ES</string>
+    <color name="colorFondo">#30E09D</color>
+    <color name="colorTexto">#219532</color>
+</resources>
