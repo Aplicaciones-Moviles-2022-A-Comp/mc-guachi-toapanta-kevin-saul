@@ -13,12 +13,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Movcompksgt2022A"
         tools:targetApi="31">
-        <meta-data android:name="io.sentry.dsn" android:value="https://fcdd99abaa774564ba4a9bb9b5adb5ae@o1255429.ingest.sentry.io/6423979" />
-        <!-- Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
-           We recommend adjusting this value in production. -->
-        <meta-data android:name="io.sentry.traces.sample-rate" android:value="1.0" />
-        <!-- Enable user interaction tracing to capture transactions for various UI events (such as clicks or scrolls). -->
-        <meta-data android:name="io.sentry.traces.user-interaction.enable" android:value="true" />
+        <activity
+            android:name=".BListView"
+            android:exported="false" />
+        <activity
+            android:name=".ACicloVida"
+            android:exported="false"
+            android:label="@string/title_activity_aciclo_vida"
+            android:theme="@style/Theme.Movcompksgt2022A.NoActionBar" />
+
+        <meta-data
+            android:name="io.sentry.dsn"
+            android:value="https://fcdd99abaa774564ba4a9bb9b5adb5ae@o1255429.ingest.sentry.io/6423979" />
+        <!--
+ Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
+           We recommend adjusting this value in production.
+        -->
+        <meta-data
+            android:name="io.sentry.traces.sample-rate"
+            android:value="1.0" /> <!-- Enable user interaction tracing to capture transactions for various UI events (such as clicks or scrolls). -->
+        <meta-data
+            android:name="io.sentry.traces.user-interaction.enable"
+            android:value="true" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

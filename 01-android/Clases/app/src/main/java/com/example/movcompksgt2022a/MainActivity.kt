@@ -19,10 +19,10 @@ class MainActivity : AppCompatActivity() {
             irActividad(ACicloVida::class.java)
         }
 
-        /*val listView = findViewById<Button>(R.id.ir_list_view)
+        val listView = findViewById<Button>(R.id.ir_list_view)
         listView.setOnClickListener {
             irActividad(BListView::class.java)
-        }*/
+        }
     }
 
     fun irActividad(
