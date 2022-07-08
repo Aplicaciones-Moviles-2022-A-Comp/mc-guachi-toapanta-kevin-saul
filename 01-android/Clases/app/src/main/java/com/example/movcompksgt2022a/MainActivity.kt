@@ -8,13 +8,10 @@ import android.os.Bundle
 import android.provider.ContactsContract
 import android.util.Log
 import android.widget.Button
-import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.navigation.ActivityNavigatorExtras
 
 import io.sentry.Sentry
 import io.sentry.SentryLevel
-import java.net.URI
 
 class MainActivity : AppCompatActivity() {
     val CODIGO_RESPUESTA_INTENT_EXPLICITO = 401
@@ -61,6 +58,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         Sentry.captureMessage("testing SDK setup", SentryLevel.INFO)
 
+        //Base de datos sqlite
+        EBaseDatos.TableEntrenador = ESqliteHelperEntrenador(this)
+
         val botonCicloVida = findViewById<Button>(R.id.btn_ciclo_vida)
         botonCicloVida.setOnClickListener {
             irActividad(ACicloVida::class.java)
@@ -77,6 +77,7 @@ class MainActivity : AppCompatActivity() {
             abrirActividadParametros(CintentExplicitoParametros::class.java)
         }
 
+
         val btnIntentImplicito = findViewById<Button>(R.id.btnIntentImplicito)
         btnIntentImplicito.setOnClickListener {
             val intentConRespuesta = Intent(
@@ -85,6 +86,11 @@ class MainActivity : AppCompatActivity() {
             )
             contenidoIntentExplicito.launch(intentConRespuesta)
                 //startActivityForResult(intentConRespuesta, CODIGO_RESPUESTA_INTENT_IMPLICITO)
+        }
+
+        val btnNA = findViewById<Button>(R.id.btnNA)
+        btnNA.setOnClickListener {
+            abrirActividadParametros(CrudEntrenador::class.java)
         }
     }
 
@@ -104,6 +110,11 @@ class MainActivity : AppCompatActivity() {
         intentExplicito.putExtra("nombre", "Adrian")
         intentExplicito.putExtra("apellido", "Eguez")
         intentExplicito.putExtra("edad", 32)
+
+        intentExplicito.putExtra(
+            "EntrenadorPrincipal",
+            BEntrenador(0,"Adrian", "Paleta")
+        )
         contenidoIntentExplicito.launch(intentExplicito)
         // startActivityForResult(intentExplicito, CODIGO_RESPUESTA_INTENT_EXPLICITO)
 

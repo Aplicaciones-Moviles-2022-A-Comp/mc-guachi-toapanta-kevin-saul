@@ -52,16 +52,16 @@ class ESqliteHelperEntrenador(contexto: Context?) : SQLiteOpenHelper
     }
 
 
-    fun consultarUsuarioPorId(id: Int): EUsuarioBDD {
+    fun consultarEntrenadorPorId(id: Int): BEntrenador {
         // val baseDatosLectura = this.readableDatabase
         val baseDatosLectura = readableDatabase
-        val scriptConsultarUsuario = "SELECT * FROM USUARIO WHERE ID = ${id}"
+        val scriptConsultarUsuario = "SELECT * FROM ENTRENADOR WHERE ID = ${id}"
         val resultadoConsultaLectura = baseDatosLectura.rawQuery(
             scriptConsultarUsuario,
             null
         )
         val existeUsuario = resultadoConsultaLectura.moveToFirst()
-        val usuarioEncontrado = EUsuarioBDD(0, "", "")
+        var usuarioEncontrado = BEntrenador(0, "", "")
         if (existeUsuario) {
             do {
                 val id = resultadoConsultaLectura.getInt(0) // columna indice 0 -> ID
@@ -80,7 +80,7 @@ class ESqliteHelperEntrenador(contexto: Context?) : SQLiteOpenHelper
         return usuarioEncontrado
     }
 
-    fun eliminarUsuarioFormulario(id: Int): Boolean {
+    fun eliminarEntrenadorFormulario(id: Int): Boolean {
         //        val conexionEscritura = this.writableDatabase
         val conexionEscritura = writableDatabase
         // "SELECT * FROM USUARIO WHERE ID = ?"
@@ -89,7 +89,7 @@ class ESqliteHelperEntrenador(contexto: Context?) : SQLiteOpenHelper
         // )
         val resultadoEliminacion = conexionEscritura
             .delete(
-                "USUARIO",
+                "ENTRENADOR",
                 "id=?",
                 arrayOf(
                     id.toString()
@@ -99,7 +99,7 @@ class ESqliteHelperEntrenador(contexto: Context?) : SQLiteOpenHelper
         return if (resultadoEliminacion.toInt() == -1) false else true
     }
 
-    fun actualizarUsuarioFormulario(
+    fun actualizarEntrenadorFormulario(
         nombre: String,
         descripcion: String,
         idActualizar: Int
@@ -110,7 +110,7 @@ class ESqliteHelperEntrenador(contexto: Context?) : SQLiteOpenHelper
         valoresAActualizar.put("descripcion", descripcion)
         val resultadoActualizacion = conexionEscritura
             .update(
-                "USUARIO", // Nombre tabla
+                "ENTRENADOR", // Nombre tabla
                 valoresAActualizar,  // Valores a actualizar
                 "id=?", // Clausula Where
                 arrayOf(
@@ -121,6 +121,5 @@ class ESqliteHelperEntrenador(contexto: Context?) : SQLiteOpenHelper
         return if (resultadoActualizacion == -1) false else true
 
     }
-
 
 }

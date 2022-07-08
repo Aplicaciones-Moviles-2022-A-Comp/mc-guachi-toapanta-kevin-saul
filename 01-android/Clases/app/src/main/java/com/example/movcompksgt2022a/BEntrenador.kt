@@ -4,11 +4,13 @@ import android.os.Parcel
 import android.os.Parcelable
 
 class BEntrenador(
-    val nombre: String?,
-    val descripcion: String?
-):Parcelable {
+    var id: Int?,
+    var nombre: String?,
+    var descripcion: String?
+) : Parcelable {
     constructor(parcel: Parcel) : this(
         //Dice que leer las variables de la clase
+        parcel.readInt(),
         parcel.readString(),
         parcel.readString()
     ) {
@@ -22,6 +24,12 @@ class BEntrenador(
         //Escribir String
         parcel.writeString(nombre)
         parcel.writeString(descripcion)
+
+        if (id != null) {
+            parcel.writeInt(id!!)
+        }else{
+            parcel.writeInt(0)
+        }
     }
 
     override fun describeContents(): Int {
