@@ -13,6 +13,8 @@ class CintentExplicitoParametros : AppCompatActivity() {
         val apellido = intent.getStringExtra("apellido")
         val edad = intent.getIntExtra("edad",0)
 
+        val entrenadorPrincipal = intent.getParcelableExtra<BEntrenador>("entrenadorPrincipal")
+
         val btnDevolver = findViewById<Button>(R.id.btnDevolverResp)
 
         btnDevolver
