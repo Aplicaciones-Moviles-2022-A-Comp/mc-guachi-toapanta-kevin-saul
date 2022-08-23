@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:icon="@drawable/ic_baseline_favorite_24"
+        android:title="Siguiendo" />
+    <item
+        android:icon="@drawable/ic_baseline_explore_24"
+        android:title="Descubrir" />
+    <item
+        android:icon="@drawable/ic_baseline_filter_none_24"
+        android:title="Explorar"
+        />
+    <item
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title="Buscar" />
+</menu>
