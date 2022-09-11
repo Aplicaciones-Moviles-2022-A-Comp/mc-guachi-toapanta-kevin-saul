@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Documentos"
+        android:id="@+id/documentos"
+        android:icon="@drawable/ic_file_pdf_solid"/>
+    <item android:title="Biblioteca"
+        android:id="@+id/biblioteca"
+        android:icon="@drawable/ic_baseline_library_books_24"/>
+    <item android:title="Categorías"
+        android:id="@+id/categorias"
+        android:icon="@drawable/ic_tag_solid"/>
+    <item android:title="Configuración"
+        android:id="@+id/configuracion"
+        android:icon="@drawable/ic_baseline_settings_24"/>
+</menu>
