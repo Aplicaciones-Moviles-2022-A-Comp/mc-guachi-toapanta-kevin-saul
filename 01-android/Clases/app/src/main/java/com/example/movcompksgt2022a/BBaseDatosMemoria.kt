@@ -1,5 +1,7 @@
 package com.example.movcompksgt2022a
 
+import android.widget.EditText
+
 class BBaseDatosMemoria {
     companion object {
         val arregloBEntrenador = arrayListOf<BEntrenador>()
@@ -16,3 +18,7 @@ class BBaseDatosMemoria {
         }
     }
 }
+
+
+
+

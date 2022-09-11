@@ -15,4 +15,5 @@
         <item>Martes</item>
         <item>Miércoles</item>
     </string-array>
+    <string name="title_activity_fgoogle_maps">FGoogleMaps</string>
 </resources>

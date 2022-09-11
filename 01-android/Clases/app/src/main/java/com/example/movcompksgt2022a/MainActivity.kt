@@ -85,12 +85,32 @@ class MainActivity : AppCompatActivity() {
                 ContactsContract.CommonDataKinds.Phone.CONTENT_URI
             )
             contenidoIntentExplicito.launch(intentConRespuesta)
-                //startActivityForResult(intentConRespuesta, CODIGO_RESPUESTA_INTENT_IMPLICITO)
+            //startActivityForResult(intentConRespuesta, CODIGO_RESPUESTA_INTENT_IMPLICITO)
         }
 
         val btnNA = findViewById<Button>(R.id.btnNA)
         btnNA.setOnClickListener {
             abrirActividadParametros(CrudEntrenador::class.java)
+        }
+
+        val btn_GRecyclerView = findViewById<Button>(R.id.btn_RecyclerView)
+        btn_GRecyclerView.setOnClickListener {
+            irActividad(GRecyclerView::class.java)
+        }
+
+        val btn_ir_firebase = findViewById<Button>(R.id.btn_ir_firebase)
+        btn_ir_firebase.setOnClickListener {
+            irActividad(HFirebaseUIAuth::class.java)
+        }
+
+        val btnFirestore = findViewById<Button>(R.id.btn_ir_firestore)
+        btnFirestore.setOnClickListener {
+            irActividad(IFirebaseFirestore::class.java)
+        }
+
+        val btnGoogleMaps = findViewById<Button>(R.id.btn_google_maps)
+        btnGoogleMaps.setOnClickListener {
+            irActividad(FGoogleMaps::class.java)
         }
     }
 
@@ -113,7 +133,7 @@ class MainActivity : AppCompatActivity() {
 
         intentExplicito.putExtra(
             "EntrenadorPrincipal",
-            BEntrenador(0,"Adrian", "Paleta")
+            BEntrenador(0, "Adrian", "Paleta")
         )
         contenidoIntentExplicito.launch(intentExplicito)
         // startActivityForResult(intentExplicito, CODIGO_RESPUESTA_INTENT_EXPLICITO)
